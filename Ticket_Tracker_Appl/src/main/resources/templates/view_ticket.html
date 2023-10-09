@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Ticket Tracker Appication</title>
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary text-white">
+		<div class="container-fluid">
+			<h4>Ticket Tracker Appication</h4>
+			<a href="http://localhost:8080/admin/tickets"
+				class="navbar navbar-expand-lg navbar-dark bg-primary text-white">
+				Tickets </a> <a href="http://localhost:8080/admin/newtickets"
+				class="navbar navbar-expand-lg navbar-dark bg-primary text-white">
+				New ticket </a>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container mt-5 pt-2 border w-50">
+		<h2 align="center" style="background-color: rgb(250, 250, 250)">View
+			Ticket</h2>
+		<hr>
+		<form action="#" th:action="@{/admin/saveTicket}"
+			th:object="${ticket}" method="GET">
+
+
+			<input type="hidden" th:field="*{id}" /> 
+			<h3>Title</h3><hr>
+			<p th:text="${ticket.title}"></p>
+			<br>
+			<h3>Short Description</h3><hr>
+			<p th:text="${ticket.short_desc}"></p>
+			<br>
+			<h3>Content</h3><hr>
+			<p th:text="${ticket.content}"></p>
+			<br>
+			<input
+				type="hidden" th:field="*{date}" placeholder="date"
+				class="form-control mb-4">
+
+		</form>
+		
+
+		<hr>
+
+	</div>
+</body>
+
+</html>
